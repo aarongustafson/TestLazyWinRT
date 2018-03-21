@@ -6,6 +6,8 @@ document.body.appendChild($output);
  */
 if ( 'Windows' in window && 'caches' in window )
 {
+  $output.innerHTML += 'This is an installed PWA\r\n';
+  
   var WinRT_js_file = '/j/WinRT.js',
       cache_name = 'WinRT';
   
