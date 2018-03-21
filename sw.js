@@ -13,3 +13,18 @@ addEventListener('install', installEvent => {
     })
   );
 });
+
+addEventListener('fetch', fetchEvent => {
+  const request = fetchEvent.request;
+  fetchEvent.respondWith(
+    // First, look in the cache.
+    caches.match(request)
+      .then( responseFromCache => {
+        if (responseFromCache) {
+          return responseFromCache;
+        }
+        // Otherwise fetch from the network.
+        return fetch(request);
+      }) // end match then
+  ); // end respondWith
+}); // end addEventListener

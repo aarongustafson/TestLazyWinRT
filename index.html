@@ -23,5 +23,10 @@
   
   <!-- Scripts -->
   <script src="/j/main.js"></script>
+  <script>
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
 </body>
 </html>
